@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeFarmer</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeFarmer</title>
+  <style>
+    /* ===== HEADER & MENU ===== */
     .topbar {
       text-align: center;
-      padding: 20px ;
+      padding: 20px;
       border-bottom: 1px solid #ddd;
-    } 
+      background-color: #fff;
+    }
 
     .logo {
       font-family: 'Rye', serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #5a2d0c;
+      font-size: 28px;
+      font-weight: bold;
+      color: #5a2d0c;
     }
+
     .menu {
       margin-top: 20px;
     }
@@ -27,10 +30,7 @@
       display: flex;
       justify-content: center;
       gap: 30px;
-    }
-
-    .menu ul li {
-      display: inline;
+      list-style: none;
     }
 
     .menu ul li a {
@@ -41,11 +41,92 @@
       font-family: "Arvo", serif;
     }
 
-    </style>
+    /* ===== GENERAL PAGE STYLES ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    .hero {
+      background-image: url(https://thehill.com/wp-content/uploads/sites/2/2016/12/farmland.jpg?w=1280); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #5a2d0c;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    /* ===== TRADITION & QUALITY SECTION ===== */
+    .tradition-section {
+      background-color: #fff;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .tradition-section h1 {
+      font-family: 'Arvo', serif;
+      font-size: 32px;
+      color: #5a2d0c;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .tradition-section p1 {
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: center;
+      color: #5a2d0c;
+      font-size: 20px;
+
+
+    }
+
+    .tradition-section p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #b59e8f;
+
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-     <div class="topbar">
-    <div class="logo">betheme farmer </div>
+
+  <!-- HEADER -->
+  <div class="topbar">
+    <div class="logo">betheme farmer</div>
     <div class="menu">
       <ul>
         <li><a href="#">Home</a></li>
@@ -57,6 +138,25 @@
       </ul>
     </div>
   </div>
-    
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Welcome to BeFarmer</h1>
+    <a href="#" class="btn">View more</a>
+  </section>
+
+  <!-- TRADITION & QUALITY SECTION -->
+  <section class="tradition-section">
+    <h1>Tradition and quality</h1>
+    <p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p1>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2025 BeFarmer. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
