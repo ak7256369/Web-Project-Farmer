@@ -32,6 +32,7 @@
   color: white;
   text-align: center;
   padding: 120px 20px;
+  font-family: 'Rye', serif;
 }
 
 .hero h1 {
@@ -40,15 +41,16 @@
 }
 
 .hero .btn {
-  background-color: #5a2d0c;
-  color: white;
+  background-color: white;
+  color: #5a2d0c;
   font-weight: bold;
   border-radius: 4px;
   padding: 12px 25px;
 }
 
+
 .tradition-section h1 {
-  font-family: 'Arvo', serif;
+  font-family: 'Rye', serif;
   color: #5a2d0c;
   margin-bottom: 20px;
 }
@@ -141,14 +143,37 @@
   height: auto;
 }
 
+.trustworthy-brand h1 {
+  font-family: 'Rye', serif;
+  color: #5a2d0c;
+}
+
+.trustworthy-brand h5 {
+  font-family: 'Rye', serif;
+  color: #5a2d0c;
+}
+
+.trustworthy-brand p {
+  color: #6c757d;
+  margin: 35px;
+}
+
+.trustworthy-brand img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;     
+  height: 160px;         
+  object-fit: cover;
+}
+
 .site-footer {
-  background-color: #222;
+  background-color: #270707;
   color: #bbb;
 }
 
 .site-footer .footer-title {
   color: #fff;
-  font-family: 'Arvo', serif;
+  font-family: 'Rye', serif;
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 14px;
