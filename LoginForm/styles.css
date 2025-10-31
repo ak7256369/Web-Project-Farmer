@@ -77,16 +77,6 @@ body {
     box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
 }
 
-.password-toggle {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #6c757d;
-    cursor: pointer;
-}
 
 .password-container {
     position: relative;

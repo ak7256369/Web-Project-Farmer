@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Restful APi</title>
+    <title>Fake Restful API</title>
     
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
     <style>
         .story-item {
             background: #f8f9fa;
-            border-left: 4px solid #28a745 !important;
             transition: all 0.3s ease;
         }
 
@@ -35,14 +34,6 @@
         .story-meta {
             font-style: italic;
             font-size: 0.85rem;
-        }
-
-        .alert-notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            min-width: 300px;
         }
 
         .btn-sm {
@@ -72,7 +63,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="display-4">Album Manager</h1>
-                    <p class="lead">Create, edit, and manage your albums</p>
+                    <p class="lead">Create, Edit, and Manage your albums</p>
                     <a href="/" class="btn btn-light btn-sm">← Back to Home</a>
                 </div>
             </div>
@@ -81,15 +72,15 @@
 
     <div class="container">
         <div class="form-container">
-            <h3 class="mb-4">📝 Create or Edit Story</h3>
+            <h3 class="mb-4">Create or Edit Story</h3>
             <form id="createForm">
                 <div class="form-group">
                     <label for="createTitle" class="font-weight-bold">Title:</label>
-                    <input type="text" class="form-control" id="createTitle" required value="new story" placeholder="Enter story title">
+                    <input type="text" class="form-control" id="createTitle" placeholder="Enter Story Title">
                 </div>
                 <div class="form-group">
                     <label for="createContent" class="font-weight-bold">Content:</label>
-                    <textarea class="form-control" id="createContent" rows="4" required placeholder="Enter story content">New Story Content</textarea>
+                    <textarea class="form-control" id="createContent" rows="4" required placeholder="Enter Story Content"></textarea>
                 </div>
                 <div class="form-group">
                     <button id="createBtn" type="submit" class="btn btn-success btn-lg">Create Story</button>
@@ -100,7 +91,7 @@
 
         <div class="stories-section">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3>📖 Your Stories & Albums</h3>
+                <h3>Your Stories & Albums</h3>
             </div>
             
 

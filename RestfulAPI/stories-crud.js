@@ -2,7 +2,7 @@ const API_URL = 'https://jsonplaceholder.typicode.com';
 
 function displayStories() {
     $.ajax({
-        url: `${API_URL}/albums`,
+        url: `${API_URL}/posts`,
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -16,12 +16,7 @@ function handleResponse(data) {
     var storiesList = $("#storiesList");
     storiesList.empty();
  
-    if (data.length === 0) {
-        storiesList.append('<p>No stories found. Create your first story!</p>');
-        return;
-    }
-
-    $.each(data.slice(0, 5), function(index, story) {
+        $.each(data.slice(0, 5), function(index, story) {
         storiesList.append(
             `<div class="story-item mb-4 p-3 border rounded">
                 <h3 class="story-title">${story.title || 'Untitled Story'}</h3>
@@ -39,7 +34,7 @@ function deleteStory() {
     let storyId = $(this).attr("data-id");
     
         $.ajax({
-            url: `${API_URL}/albums/${storyId}`,
+            url: `${API_URL}/posts/${storyId}`,
             method: "DELETE",
             success: function() {
                 displayStories(); 
@@ -63,7 +58,7 @@ function handleFormSubmission(event) {
 
     if (storyId) {
         $.ajax({
-            url: `${API_URL}/albums/${storyId}`,
+            url: `${API_URL}/posts/${storyId}`,
             method: "PUT",
             data: { 
                 title: title, 
@@ -84,7 +79,7 @@ function handleFormSubmission(event) {
         });
     } else {
         $.ajax({
-            url: `${API_URL}/albums`,
+            url: `${API_URL}/posts`,
             method: "POST",
             data: { 
                 title: title, 
@@ -111,7 +106,7 @@ function editBtnClicked(event) {
     let storyId = $(this).attr("data-id");
     
     $.ajax({
-        url: `${API_URL}/albums/${storyId}`,
+        url: `${API_URL}/posts/${storyId}`,
         method: "GET",
         success: function(data) {
             $("#clearBtn").show();
@@ -129,26 +124,6 @@ function editBtnClicked(event) {
             showNotification('Error loading story for editing!', 'error');
         },
     });
-}
-
-
-
-function showNotification(message, type) {
-    $('.alert-notification').remove();
-    
-    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
-    const notification = $(`<div class="alert ${alertClass} alert-notification alert-dismissible fade show" role="alert">
-        ${message}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>`);
-    
-    $("#createForm").before(notification);
-    
-    setTimeout(() => {
-        notification.alert('close');
-    }, 3000);
 }
 
 $(document).ready(function() {
