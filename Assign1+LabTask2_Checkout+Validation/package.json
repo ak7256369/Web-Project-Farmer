@@ -1,0 +1,8 @@
+{
+    "name": "assign-1-lab-task-2",
+    "version": "1.0.0",
+    "description": "Assignment 1 & Lab Task 2: Checkout Validation",
+    "scripts": {
+        "start": "npx http-server . -o"
+    }
+}
