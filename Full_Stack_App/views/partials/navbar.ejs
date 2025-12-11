@@ -12,7 +12,22 @@
                 <li class="nav-item"><a class="nav-link" href="#">The Process</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="/contact-us">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link fw-bold" href="/products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="/products">Shop</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span class="badge bg-success rounded-circle">
+                            <%= typeof cartCount !=='undefined' ? cartCount : 0 %>
+                        </span>
+                    </a>
+                </li>
+                <% if (user) { %>
+                    <li class="nav-item"><a class="nav-link fw-bold text-danger" href="/admin/dashboard">Admin
+                            Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin/logout">Logout</a></li>
+                    <% } else { %>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="/admin/login">Admin Login</a></li>
+                        <% } %>
             </ul>
         </nav>
     </div>

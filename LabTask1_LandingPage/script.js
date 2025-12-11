@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.querySelector(".hero .btn");
-  if (btn) {
+  // Only alert if the link is a placeholder '#'
+  const btns = document.querySelectorAll("a[href='#']");
+  btns.forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      alert("Thanks for visiting BeFarmer!");
+      // alert("Feature coming soon!");
     });
-  }
+  });
 });
