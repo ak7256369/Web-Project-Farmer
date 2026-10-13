@@ -1,0 +1,79 @@
+<h2>Orders Dashboard</h2>
+<table class="table table-bordered table-striped align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (orders.length===0) { %>
+            <tr>
+                <td colspan="7" class="text-center">No orders found.</td>
+            </tr>
+            <% } %>
+                <% orders.forEach(order=> { %>
+                    <tr>
+                        <td>
+                            <!-- Short Order ID -->
+                            <span class="badge bg-light text-dark border">
+                                <%= order.orderCode || order._id.toString().slice(-6) %>
+                            </span>
+                        </td>
+                        <td>
+                            <strong>
+                                <%= order.customerName %>
+                            </strong><br>
+                            <small class="text-muted">
+                                <%= order.email %>
+                            </small>
+                        </td>
+                        <td>
+                            <ul class="list-unstyled mb-0">
+                                <% order.items.forEach(item=> { %>
+                                    <li>
+                                        <!-- Just name, no quantity -->
+                                        <%= item.name %>
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                        </td>
+                        <td>$<%= order.totalAmount %>
+                        </td>
+                        <td>
+                            <% if (order.status==='Pending' ) { %>
+                                <span class="badge bg-warning text-dark">Pending</span>
+                                <% } else if (order.status==='Confirmed' ) { %>
+                                    <span class="badge bg-success">Confirmed</span>
+                                    <% } else { %>
+                                        <span class="badge bg-danger">Cancelled</span>
+                                        <% } %>
+                        </td>
+                        <td>
+                            <%= order.orderDate.toDateString() %>
+                        </td>
+                        <td>
+                            <% if(order.status==='Pending' ) { %>
+                                <div class="d-flex gap-2"> <!-- Added gap for spacing -->
+                                    <form action="/admin/orders/<%= order._id %>/status" method="POST"
+                                        style="display:inline;">
+                                        <input type="hidden" name="status" value="Confirmed">
+                                        <button type="submit" class="btn btn-success btn-sm">Confirm</button>
+                                    </form>
+                                    <form action="/admin/orders/<%= order._id %>/status" method="POST"
+                                        style="display:inline;">
+                                        <input type="hidden" name="status" value="Cancelled">
+                                        <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                                    </form>
+                                </div>
+                                <% } %>
+                        </td>
+                    </tr>
+                    <% }) %>
+    </tbody>
+</table>

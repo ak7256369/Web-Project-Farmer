@@ -1,0 +1,8 @@
+{
+    "name": "mid-term-cv",
+    "version": "1.0.0",
+    "description": "Mid Term: CV",
+    "scripts": {
+        "start": "npx http-server . -o /cv.html"
+    }
+}

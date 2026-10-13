@@ -1,0 +1,7 @@
+
+# Added during malware cleanup
+node_modules/
+.env
+.env.*
+!.env.example
+.claude/settings.local.json

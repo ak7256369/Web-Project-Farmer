@@ -1,0 +1,8 @@
+{
+    "name": "assign-2-restful-api",
+    "version": "1.0.0",
+    "description": "Assignment 2: Restful API Client",
+    "scripts": {
+        "start": "npx http-server . -o -c-1"
+    }
+}

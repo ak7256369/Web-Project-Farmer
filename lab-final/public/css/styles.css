@@ -1,0 +1,10 @@
+#menu li{
+    display: inline-block;
+    
+}
+
+h1 {
+    border: 1px dashed black;
+    border-radius: 5px;
+    padding: 10px;
+}

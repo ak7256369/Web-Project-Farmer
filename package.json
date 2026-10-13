@@ -1,0 +1,8 @@
+{
+    "name": "web-project-farmer-root",
+    "version": "1.0.0",
+    "description": "Root runner for all Web Projects",
+    "scripts": {
+        "start": "npx http-server . -o /LabTask1_LandingPage/index.html"
+    }
+}

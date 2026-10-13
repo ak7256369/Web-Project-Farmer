@@ -1,0 +1,8 @@
+{
+    "name": "lab-task-1-landing-page",
+    "version": "1.0.0",
+    "description": "Lab Task 1: Landing Page",
+    "scripts": {
+        "start": "npx http-server . -o"
+    }
+}

@@ -1,0 +1,263 @@
+.cv-hero {
+  background: linear-gradient(rgba(90, 45, 12, 0.8), rgba(90, 45, 12, 0.8)), 
+              url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+  color: white;
+  text-align: center;
+}
+
+.cv-title {
+  font-family: 'Rye', serif;
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.cv-subtitle {
+  font-family: 'Arvo', serif;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.cv-content {
+  background-color: #f9f5f2;
+}
+
+.cv-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cv-section-heading {
+  font-family: 'Rye', serif;
+  background-color: #5a2d0c;
+  color: white;
+  padding: 20px 25px;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cv-section-heading:hover {
+  background-color: #4b240a;
+}
+
+.cv-section-heading::after {
+  content: '+';
+  position: absolute;
+  right: 25px;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.cv-section.active .cv-section-heading::after {
+  transform: rotate(45deg);
+}
+
+.cv-section-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding: 0 25px;
+}
+
+.cv-section.active .cv-section-content {
+  max-height: 2000px;
+  padding: 25px;
+}
+
+.cv-profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 4px solid #5a2d0c;
+}
+
+.cv-name {
+  font-family: 'Rye', serif;
+  color: #5a2d0c;
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.cv-position {
+  font-family: 'Arvo', serif;
+  font-size: 18px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.cv-personal-info {
+  list-style: none;
+  padding: 0;
+}
+
+.cv-personal-info li {
+  margin-bottom: 10px;
+  font-family: 'Arvo', serif;
+}
+
+.cv-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.cv-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #5a2d0c;
+}
+
+.cv-timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.cv-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -38px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #5a2d0c;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #5a2d0c;
+}
+
+.cv-timeline-item h4 {
+  font-family: 'Arvo', serif;
+  color: #5a2d0c;
+  margin-bottom: 5px;
+}
+
+.cv-institution {
+  font-family: 'Arvo', serif;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.cv-period {
+  font-family: 'Arvo', serif;
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.cv-description {
+  color: #555;
+  line-height: 1.6;
+}
+
+.cv-skills-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cv-skills-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.cv-skills-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #5a2d0c;
+  font-weight: bold;
+}
+
+.cv-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cv-tool-item {
+  background-color: #f0e6df;
+  color: #5a2d0c;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: 'Arvo', serif;
+}
+
+.cv-contact-info {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cv-contact-info li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.cv-contact-info li i {
+  width: 20px;
+  margin-right: 10px;
+  color: #5a2d0c;
+}
+
+.cv-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cv-social-link {
+  display: inline-flex;
+  align-items: center;
+  color: #5a2d0c;
+  text-decoration: none;
+  font-family: 'Arvo', serif;
+  transition: color 0.3s;
+}
+
+.cv-social-link:hover {
+  color: #4b240a;
+  text-decoration: underline;
+}
+
+.cv-social-link i {
+  margin-right: 8px;
+}
+
+.cv-contact-form .form-control {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-family: 'Arvo', serif;
+}
+
+.cv-contact-form .form-control:focus {
+  border-color: #5a2d0c;
+  box-shadow: 0 0 0 0.2rem rgba(90, 45, 12, 0.25);
+}
+
+@media (max-width: 768px) {
+  .cv-title {
+    font-size: 32px;
+  }
+  
+  .cv-timeline {
+    padding-left: 20px;
+  }
+  
+  .cv-timeline-item::before {
+    left: -28px;
+  }
+  
+  .cv-tools {
+    justify-content: flex-start;
+  }
+}

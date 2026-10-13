@@ -1,0 +1,166 @@
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0">Checkout</h3>
+            </div>
+            <div class="card-body">
+                <form id="checkoutForm" action="/cart/checkout" method="POST" novalidate>
+                    <!-- Full Name -->
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" name="fullName" class="form-control" id="fullName" placeholder="John Doe">
+                        <div class="invalid-feedback">Name must be at least 3 characters.</div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="03001234567">
+                        <div class="invalid-feedback">Phone must be at least 10 digits (numbers only).</div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" name="address" class="form-control" id="address" placeholder="123 Street">
+                        <div class="invalid-feedback">Address is required.</div>
+                    </div>
+
+                    <div class="row">
+                        <!-- City -->
+                        <div class="col-md-6 mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" name="city" class="form-control" id="city">
+                            <div class="invalid-feedback">City is required.</div>
+                        </div>
+                        <!-- POSTAL CODE -->
+                        <div class="col-md-6 mb-3">
+                            <label for="postalCode" class="form-label">Postal Code</label>
+                            <input type="text" name="postalCode" class="form-control" id="postalCode"
+                                placeholder="12345">
+                            <div class="invalid-feedback">Must be 4-6 numeric digits.</div>
+                        </div>
+                    </div>
+
+                    <!-- Country -->
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" name="country" id="country">
+                            <option value="" selected disabled>Choose...</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a country.</div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <!-- Payment Method -->
+                    <h4 class="mb-3">Payment Method</h4>
+                    <div class="my-3">
+                        <div class="form-check">
+                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" value="card">
+                            <label class="form-check-label" for="credit">Credit card</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" value="card">
+                            <label class="form-check-label" for="debit">Debit card</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="cod" name="paymentMethod" type="radio" class="form-check-input" value="cod">
+                            <label class="form-check-label" for="cod">Cash on Delivery</label>
+                        </div>
+                        <div class="invalid-feedback d-block" id="paymentError" style="display:none!important">Please
+                            select a payment method.</div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <!-- Terms -->
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="terms">
+                        <label class="form-check-label" for="terms">I accept the terms and conditions</label>
+                        <div class="invalid-feedback">You must accept the terms.</div>
+                    </div>
+
+                    <button class="btn btn-success btn-lg w-100" type="submit">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#checkoutForm').on('submit', function (e) {
+            let isValid = true;
+            let firstError = null;
+
+            // Reset
+            $('.is-invalid').removeClass('is-invalid');
+            $('.invalid-feedback').hide();
+
+            function showError(elementId, validateFn) {
+                const el = $(elementId);
+                if (!validateFn(el.val())) {
+                    el.addClass('is-invalid');
+                    el.siblings('.invalid-feedback').show(); // Show specific feedback
+                    if (!firstError) firstError = el;
+                    return false;
+                }
+                el.addClass('is-valid');
+                return true;
+            }
+
+            // Validations
+            if (!showError('#fullName', val => val.trim().length >= 3)) isValid = false;
+            if (!showError('#email', val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val))) isValid = false;
+            if (!showError('#phone', val => /^\d{10,}$/.test(val.replace(/\D/g, '')))) isValid = false;
+            if (!showError('#address', val => val.trim().length > 0)) isValid = false;
+            if (!showError('#city', val => val.trim().length > 0)) isValid = false;
+            if (!showError('#postalCode', val => /^\d{4,6}$/.test(val))) isValid = false;
+            if (!showError('#country', val => val !== null && val !== '')) isValid = false;
+
+            if ($('input[name="paymentMethod"]:checked').length === 0) {
+                $('#paymentError').show();
+                isValid = false;
+            } else {
+                $('#paymentError').hide();
+            }
+
+            if (!$('#terms').is(':checked')) {
+                $('#terms').addClass('is-invalid');
+                $('#terms').siblings('.invalid-feedback').show();
+                isValid = false;
+            }
+
+            if (!isValid) {
+                e.preventDefault(); // STOP submission
+                // Smooth scroll to first error
+                if (firstError) {
+                    $('html, body').animate({
+                        scrollTop: firstError.offset().top - 100
+                    }, 500);
+                }
+            }
+        });
+
+        // Real-time validation removal on input
+        $('input, select').on('input change', function () {
+            if ($(this).hasClass('is-invalid')) {
+                $(this).removeClass('is-invalid');
+                $(this).siblings('.invalid-feedback').hide();
+            }
+        });
+    });
+</script>
